@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .main{
+                display: flex;
+            }
+            .card{
+                margin-left: 10px;
+                padding: 10px;
+            }
+            .btn{
+                margin-top:20px;
+            }
+        </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        
+    <div class="container">
+        <a href="/"><button type="button" class="btn btn-primary">Back</button></a>
+        <h1>Products</h1>
+        <div class="main" >
+        {% for product in product.all %}
+        
+        <div class="card" style="width: 18rem;">
+            <iframe class="card-img-top" src={{product.ProductVideo}} alt="Card image cap" allowfullscreen frameborder="0"></iframe>
+            <div class="card-body">
+              <h5 class="card-title">{{product.ProductName}}</h5>
+              <p class="card-text">Description: {{product.ProductDescription}}</p>
+              <p class="card-text">Remark: {{product.ProductRemark}}</p>
+              <p>Source: <a class="card-text" href={{product.ProductSource}} target="_blank" rel="noopener noreferrer">{{product.ProductSource}}</a></p>
+              <p>Document: <a class="card-text" href={{product.ProductDocument.url}}  target="_blank" rel="noopener noreferrer">Open Document</a></p>
+              <p class="card-text">Date: {{product.productDate}}</p>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
